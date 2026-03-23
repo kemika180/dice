@@ -1,4 +1,5 @@
 #! /usr/bin/env python3
+import numpy as np
 from numpy.random import Generator, PCG64
 from os import system
 
@@ -42,7 +43,7 @@ def main():
                 except ValueError:
                     print("Error:\n  The number of sides must be defined.")
                     continue
-                numbers = list(rnd.integers(1, high=y, size=x))
+                numbers = list(rnd.integers(1, high=y, size=x, dtype=np.uint64))
                 numbers_list = [str(i) for i in numbers]
                 number_str = ", ".join(numbers_list)
                 die_word = "dice"
