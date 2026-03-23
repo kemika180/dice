@@ -13,13 +13,13 @@ def main():
         if command == "":
             command = prev_command
         match command.lower():
-            case "q":
+            case "q" | "quit" | "exit":
                 print("Thank you for using the CLI dice program!\n")
                 break
-            case "c":
+            case "c" | "clear" | "cls":
                 system("clear")
                 continue
-            case "h":
+            case "h" | "help":
                 print("""Help:
   XdY: Roll X dice with Y sides
        - X is optional and will default to 1, but Y is required
