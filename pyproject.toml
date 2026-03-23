@@ -1,7 +1,7 @@
 [project]
 name = "dice"
 version = "0.1.0"
-description = "Add your description here"
+description = "CLI Dice Roller"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
