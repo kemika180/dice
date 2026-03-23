@@ -53,7 +53,7 @@ def main():
                 die_word = "dice"
                 if x == 1:
                     die_word = "die"
-                print(f"Rolling {x} {y} sided {die_word}:\n  {number_str} => {sum(numbers)}\n")
+                print(f"Rolling {x} {y} sided {die_word}:\n  {number_str} => {int(sum(numbers))}\n")
                 prev_command = command
 
 
