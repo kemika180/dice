@@ -41,9 +41,13 @@ def main():
                 try:
                     y = int(command_nums[1])
                 except ValueError:
-                    print("Error:\n  The number of sides must be defined.")
+                    print("Error:\n  The number of sides must be defined.\n")
                     continue
-                numbers = list(rnd.integers(1, high=y, size=x, dtype=np.uint64))
+                try:
+                    numbers = list(rnd.integers(1, high=y, size=x, dtype=np.uint64))
+                except ValueError:
+                    print("Error:\n  Invalid request.\n")
+                    continue
                 numbers_list = [str(i) for i in numbers]
                 number_str = ", ".join(numbers_list)
                 die_word = "dice"
