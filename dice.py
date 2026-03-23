@@ -35,22 +35,22 @@ def main():
                     continue
                 command_nums = command.split("d")
                 try:
-                    x = np.int64(max(1, int(round(float(command_nums[0])))))
+                    x = np.uint16(max(1, int(round(float(command_nums[0])))))
                 except ValueError:
                     x = 1
                 except OverflowError:
-                    print("Error:\n  Result is too big.\n")
+                    print("Error:\n  Invalid Value.\n")
                     continue
                 try:
-                    y = np.int64(max(1, int(command_nums[1])))
+                    y = np.uint16(max(1, int(command_nums[1])))
                 except ValueError:
                     print("Error:\n  The number of sides must be defined.\n")
                     continue
                 except OverflowError:
-                    print("Error:\n  Result is too big.\n")
+                    print("Error:\n  Invalid Value.\n")
                     continue
                 try:
-                    numbers = list(rnd.integers(1, high=y, size=x, dtype=np.uint64))
+                    numbers = list(rnd.integers(1, high=y, size=x, dtype=np.uint32))
                 except ValueError:
                     print("Error:\n  Invalid request.\n")
                     continue
