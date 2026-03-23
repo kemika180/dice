@@ -35,11 +35,11 @@ def main():
                     continue
                 command_nums = command.split("d")
                 try:
-                    x = int(command_nums[0])
+                    x = max(1, int(round(float(command_nums[0]))))
                 except ValueError:
                     x = 1
                 try:
-                    y = int(command_nums[1])
+                    y = max(1, int(command_nums[1]))
                 except ValueError:
                     print("Error:\n  The number of sides must be defined.\n")
                     continue
@@ -48,12 +48,20 @@ def main():
                 except ValueError:
                     print("Error:\n  Invalid request.\n")
                     continue
+                except OverflowError:
+                    print("Error:\n  Result is too big.\n")
+                    continue
                 numbers_list = [str(i) for i in numbers]
                 number_str = ", ".join(numbers_list)
                 die_word = "dice"
                 if x == 1:
                     die_word = "die"
-                print(f"Rolling {x} {y} sided {die_word}:\n  {number_str} => {int(sum(numbers))}\n")
+                try:
+                    total = int(sum(numbers))
+                except OverflowError:
+                    print("Error:\n  Result is too big.\n")
+                    continue
+                print(f"Rolling {x} {y} sided {die_word}:\n  {number_str} => {total}\n")
                 prev_command = command
 
 
