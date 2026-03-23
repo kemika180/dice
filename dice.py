@@ -35,13 +35,19 @@ def main():
                     continue
                 command_nums = command.split("d")
                 try:
-                    x = max(1, int(round(float(command_nums[0]))))
+                    x = np.int64(max(1, int(round(float(command_nums[0])))))
                 except ValueError:
                     x = 1
+                except OverflowError:
+                    print("Error:\n  Result is too big.\n")
+                    continue
                 try:
-                    y = max(1, int(command_nums[1]))
+                    y = np.int64(max(1, int(command_nums[1])))
                 except ValueError:
                     print("Error:\n  The number of sides must be defined.\n")
+                    continue
+                except OverflowError:
+                    print("Error:\n  Result is too big.\n")
                     continue
                 try:
                     numbers = list(rnd.integers(1, high=y, size=x, dtype=np.uint64))
